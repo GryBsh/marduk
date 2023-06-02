@@ -23,6 +23,15 @@
 #ifndef H_PATHS
 #define H_PATHS
 
+/*
+ * ROMBASE  = path to ROM files.  Default is current directory.
+ *            Define this if you want them elsewhere (e.g., /etc/marduk,
+ *            /usr/lib/marduk, /usr/share/marduk).
+ * ROMFILE1 = ROM A (the one that comes with mjp's stash of machines), -4
+ * ROMFILE2 = ROM B (8K revision with floppy disk boot support), -8
+ * OPENNABU = location of OpenNabu IPL (default ROM).
+ */
+
 #ifdef __MSDOS__
 # ifndef ROMFILE1
 #  define ROMFILE1 "nabu4k.bin"
@@ -30,6 +39,9 @@
 # ifndef ROMFILE2
 #  define ROMFILE2 "nabu8k.bin"
 # endif /* ROMFILE2 */
+# ifndef OPENNABU
+#  define OPENNABU "opennabu.bin"
+# endif
 #else
 # ifndef ROMFILE1
 #  define ROMFILE1 "NabuPC-U53-90020060-RevA-2732.bin"
@@ -37,8 +49,9 @@
 # ifndef ROMFILE2
 #  define ROMFILE2 "NabuPC-U53-90020060-RevB-2764.bin"
 # endif /* ROMFILE2 */
+# ifndef OPENNABU
+#  define OPENNABU "opennabu.bin"
+# endif
 #endif
-
-#define OPENNABU "opennabu.bin"
 
 #endif /* H_PATHS */
